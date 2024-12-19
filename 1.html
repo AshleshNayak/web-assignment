@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashlesh Nayak - Professional Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --background-color: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: var(--primary-color);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--secondary-color);
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Home Page Styles */
+        .home-page .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .home-page .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .home-page .hero h2 {
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Resume Page Styles */
+        .resume-page .resume-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .resume-page .section {
+            margin-bottom: 2rem;
+        }
+
+        .resume-page .job, .resume-page .degree {
+            margin-bottom: 1rem;
+        }
+
+        .resume-page .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        /* Bio Page Styles */
+        .bio-page .profile-image {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .bio-page .profile-image img {
+            max-width: 300px;
+            border-radius: 50%;
+        }
+
+        .bio-page .interests ul {
+            padding-left: 2rem;
+        }
+
+        .bio-page blockquote {
+            font-style: italic;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+
+        /* Contact Page Styles */
+        .contact-page .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-page .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .contact-page .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-page .form-group input,
+        .contact-page .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+        }
+
+        .contact-page .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-page .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Ashlesh Nayak</div>
+        <ul>
+            <li><a class="nav-link" data-page="home">Home</a></li>
+            <li><a class="nav-link" data-page="resume">Resume</a></li>
+            <li><a class="nav-link" data-page="bio">About Me</a></li>
+            <li><a class="nav-link" data-page="contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Page -->
+    <main id="home" class="page home-page">
+        <section class="hero">
+            <h1>Ashlesh Nayak</h1>
+            <h2>Software Engineer | Web Developer | Tech Innovator</h2>
+            <div class="social-links">
+                <a href="#" class="linkedin">LinkedIn</a>
+                <a href="#" class="github">GitHub</a>
+                <a href="#" class="email">Email</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Resume Page -->
+    <main id="resume" class="page resume-page">
+        <section class="resume-header">
+            <h1>Ashlesh Nayak</h1>
+            <p>Software Engineer | Web Developer | Tech Innovator</p>
+        </section>
+
+        <section class="resume-content">
+            <div class="section professional-summary">
+                <h2>Professional Summary</h2>
+                <p>Innovative software engineer with 5+ years of experience in web development, specializing in full-stack technologies and creating responsive, user-centric web applications.</p>
+            </div>
+
+            <div class="section work-experience">
+                <h2>Work Experience</h2>
+                <div class="job">
+                    <h3>Software Engineer</h3>
+                    <p class="company">TechInnovate Solutions</p>
+                    <p class="date">January 2021 - Present</p>
+                    <ul>
+                        <li>Led development of scalable web applications using React and Node.js</li>
+                        <li>Implemented microservices architecture reducing system latency by 40%</li>
+                        <li>Mentored junior developers and conducted code reviews</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <h3>Web Developer</h3>
+                    <p class="company">WebCraft Digital</p>
+                    <p class="date">June 2018 - December 2020</p>
+                    <ul>
+                        <li>Developed responsive websites using HTML5, CSS3, and JavaScript</li>
+                        <li>Optimized front-end performance and implemented SEO best practices</li>
+                        <li>Collaborated with UX/UI designers to create intuitive user interfaces</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section education">
+                <h2>Education</h2>
+                <div class="degree">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p class="institution">Shri Madhwa Vadiraja Institute of Technology & Management , Bantakal</p>
+                    <p class="date">Graduated: May 2018</p>
+                </div>
+            </div>
+
+            <div class="section skills">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill">
+                        <h4>Frontend</h4>
+                        <p>React,HTML5, CSS3, JavaScript</p>
+                    </div>
+                    <div class="skill">
+                        <h4>Backend</h4>
+                        <p>Node.js, Express, Python</p>
+                    </div>
+                    <div class="skill">
+                        <h4>Database</h4>
+                        <p>MongoDB, MySQL</p>
+                    </div>
+                    <div class="skill">
+                        <h4>Tools</h4>
+                        <p>Git, Docker</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="resume-actions">
+            <button id="download-resume">Download PDF</button>
+        </div>
+    </main>
+
+    <!-- Bio Page -->
+    <main id="bio" class="page bio-page">
+        <section class="bio-header">
+            <div class="profile-image">
+                <img src="" alt="Ashlesh Nayak">
+            </div>
+            <h1>About Ashlesh Nayak</h1>
+        </section>
+
+        <section class="bio-content">
+            <div class="personal-story">
+                <h2>My Journey</h2>
+                <p>As a passionate software engineer, I've always been fascinated by the power of technology to solve complex problems and create innovative solutions. My journey began during my university years in Bangalore, where I discovered my love for coding and the endless possibilities of web development.</p>
+                
+                <p>Throughout my career, I've been driven by a desire to create user-centric applications that not only look great but also provide seamless and intuitive experiences. I believe in continuous learning and staying ahead of the latest technological trends.</p>
+            </div>
+
+            <div class="interests">
+                <h2>Beyond Code</h2>
+                <p>When I'm not immersed in the world of software development, you can find me:</p>
+                <ul>
+                    <li>Exploring the Western Ghats and capturing landscape photography</li>
+                    <li>Contributing to open-source projects</li>
+                    <li>Attending tech conferences and meetups in India</li>
+                    <li>Learning about emerging technologies like AI and machine learning</li>
+                </ul>
+            </div>
+
+            <div class="values">
+                <h2>Professional Philosophy</h2>
+                <blockquote>
+                    "Innovation is not just about creating new technologies, but about solving real-world problems and improving people's lives through thoughtful, user-centered design."
+                </blockquote>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contact Page -->
+    <main id="contact" class="page contact-page">
+        <section class="contact-header">
+            <h1>Get in Touch</h1>
+            <p>Feel free to reach out for collaboration, job opportunities, or just to say hello!</p>
+        </section>
+
+        <section class="contact-methods">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <div class="contact-details">
+                    <p><strong>Email:</strong> ashleshnayak@example.com</p>
+                    <p><strong>Phone:</strong> +91 1234567890</p>
+                    <p><strong>Location:</strong> Bangalore, Karnataka, India</p>
+                </div>
+
+                <div class="social-links">
+                    <h3>Connect Online</h3>
+                    <a href="#" class="linkedin">LinkedIn</a>
+                    <a href="#" class="github">GitHub</a>
+                    <a href="#" class="twitter">Twitter</a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h2>Send me a Message</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ashlesh Nayak. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            // Initially show home page
+            $('#home').addClass('active');
+
+            // Navigation click handler
+            $('.nav-link').on('click', function() {
+                // Remove active class from all pages and nav links
+                $('.page').removeClass('active');
+                $('.nav-link').removeClass('active');
+
+                // Get the target page
+                const targetPage = $(this).data('page');
+                
+                // Show the target page
+                $(`#${targetPage}`).addClass('active');
+                $(this).addClass('active');
+            });
+
+            // Download resume handler (mock functionality)
+            $('#download-resume').on('click', function() {
+                alert('PDF download functionality would be implemented here.');
+            });
+
+            // Contact form submission handler
+            $('#contact-form').on('submit', function(e) {
+                e.preventDefault();
+                alert('Message sent! (Note: This is a mock functionality)');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
